@@ -9,3 +9,13 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Users{
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(100)
+  email String @db.VarChar(100)
+  password String //we are hasing so , the lenght is not pre known so left at normal string
+  profile String?
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}
